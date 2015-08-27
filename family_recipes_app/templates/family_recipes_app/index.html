@@ -1,0 +1,66 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="{% static 'family_recipes_app/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'family_recipes_app/css/main.css' %}">
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="container">
+
+        <ul class="pull-left">
+          <li><a href="#">Home</a></li>
+        </ul>
+
+        <ul class="pull-right">
+          <li><a href="about">About</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Kennedy Family Recipes</h1>
+        <p>Our favorite family recipes!</p>
+      </div>
+    </div>
+
+    <div class="learn-more">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4">
+            <h3>Breakfast</h3>
+            <p>From pancakes to homemade granola, these are our favorite breakfast recipes.</p>
+            <p><a href="#">Breakfast Recipes</a></p>
+          </div>
+
+          <div class="col-md-4">
+            <h3>Lunch</h3>
+            <p>From sandwiches to smoothies, these are our favorite breakfast recipes.</p>
+            <p><a href="#">Lunch Recipes</a></p>
+          </div>
+
+          <div class="col-md-4">
+            <h3>Dinner</h3>
+            <p>From pasta to tacos, these are our favorite breakfast recipes.</p>
+            <p><a href="#">Dinner Recipes</a></p>
+          </div>
+
+          <div class="col-md-4">
+            <h3>Dessert</h3>
+            <p>From cookies to cakes, these are our favorite breakfast recipes.</p>
+            <p><a href="#">Dessert Recipes</a></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
