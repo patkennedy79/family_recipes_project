@@ -17,12 +17,15 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from . import views
+from family_recipes_app.views import RecipesListView
 
 
 urlpatterns = [
     # ex: /
     url(r'^$', views.index, name='index'),
-    # ex: /family_recipes_app/about
+    # ex: /about
     url(r'^about/$', views.about, name='about'),
+    # example: /list
+    url(r'^list/$', RecipesListView.as_view(), name='recipes_list'),
     url(r'^admin/', include(admin.site.urls)),
 ]
