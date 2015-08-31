@@ -2,8 +2,6 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 
 
-#def index(request):
-#    return HttpResponse("Welcome to the Kennedy Family Recipe site!")
 def index(request):
     template = loader.get_template('family_recipes_app/index.html')
     return HttpResponse(template.render())

@@ -1,0 +1,22 @@
+from django.db import models
+
+
+class Recipe(models.Model):
+    # Define the tuple for the choices of recipe_type. The first element in each tuple is the
+    #   actual value to be set on the model, and the second element is the human-readable name.
+    BREAKFAST = 'BR'
+    LUNCH = 'LU'
+    DINNER = 'DI'
+    DESSERT = 'DE'
+    RECIPE_TYPE_CHOICES = (
+        (BREAKFAST, 'Breakfast'),
+        (LUNCH, 'Lunch'),
+        (DINNER, 'Dinner'),
+        (DESSERT, 'Dessert'),
+    )
+
+    # Define the fields of the Model for a recipe
+    name = models.CharField(max_length=80)
+    description = models.TextField()
+    rating = models. PositiveIntegerField(default=1)
+    recipe_type = models.CharField(max_length=2, choices=RECIPE_TYPE_CHOICES, default=DINNER)
