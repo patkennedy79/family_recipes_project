@@ -1,66 +1,93 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="{% static 'family_recipes_app/css/bootstrap.css' %}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#">    <!-- NEED TO ADD A FAVICON!!! -->
+
+    <title>Kennedy Family Recipes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'family_recipes_app/css/bootstrap.min.css' %}">
+
+    <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{% static 'family_recipes_app/css/main.css' %}">
   </head>
 
   <body>
-    <div class="nav">
+    <div class="navbar-wrapper">
       <div class="container">
 
-        <ul class="pull-left">
-          <li><a href="list">List of Recipes</a></li>
-        </ul>
-
-        <ul class="pull-right">
-          <li><a href="about">About</a></li>
-        </ul>
+        <nav class="navbar navbar-default navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Kennedy Family Recipes</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="list">List of Recipes</a></li>
+                <li><a href="#">What's for Dinner?</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
       </div>
     </div>
 
-    <div class="jumbotron">
-      <div class="container">
+    <div class="container">
+      <div class="jumbotron">
         <h1>Kennedy Family Recipes</h1>
-        <p>Our favorite family recipes!</p>
+        <p>This site describes our favorite family recipes!</p>
       </div>
-    </div>
+    </div> <!-- /container -->
 
-    <div class="learn-more">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-md-4">
-            <h3>Breakfast</h3>
-            <p>From pancakes to homemade granola, these are our favorite breakfast recipes.</p>
-            <p><a href="#">Breakfast Recipes</a></p>
-          </div>
-
-          <div class="col-md-4">
-            <h3>Lunch</h3>
-            <p>From sandwiches to smoothies, these are our favorite lunch recipes.</p>
-            <p><a href="#">Lunch Recipes</a></p>
-          </div>
-
-          <div class="col-md-4">
-            <h3>Dinner</h3>
-            <p>From pasta to tacos, these are our favorite dinner recipes.</p>
-            <p><a href="#">Dinner Recipes</a></p>
-          </div>
-
-          <div class="col-md-4">
-            <h3>Dessert</h3>
-            <p>From cookies to cakes, these are our favorite desserts recipes.</p>
-            <p><a href="#">Dessert Recipes</a></p>
-          </div>
-
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Breakfast Recipes</h2>
+          <img class="img-responsive" img src="../../static/family_recipes_app/images/IMG_6272.JPG" class="img-rounded" alt="Cinque Terre">
+          <p>From pancakes to homemade granola, these are the breakfast recipes that our family enjoys! </p>
+          <p><a class="btn btn-default" href="#" role="button">Breakfast Recipes &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>Lunch Recipes</h2>
+          <img class="img-responsive" img src="../../static/family_recipes_app/images/IMG_1204.JPG" class="img-rounded" alt="Cinque Terre">
+          <p>From turkey sandwiches to our favorite garden salads, these are the lunch recipes that our family enjoys! </p>
+          <p><a class="btn btn-default" href="#" role="button">Lunch Recipes &raquo;</a></p>
+       </div>
+        <div class="col-md-3">
+          <h2>Dinner Recipes</h2>
+          <img class="img-responsive" img src="../../static/family_recipes_app/images/IMG_6128.JPG" class="img-rounded" alt="Cinque Terre">
+          <p>From chicken fajitas to our world-famous tacos (!!!), these are the dinner recipes that our family enjoys! </p>
+          <p><a class="btn btn-default" href="#" role="button">Dinner Recipes &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>Dessert Recipes</h2>
+          <img class="img-responsive" img src="../../static/family_recipes_app/images/IMG_6753.JPG" class="img-rounded" alt="Cinque Terre">
+          <p>From cookies to cupcakes, these are the dessert recipes that our family enjoys! </p>
+          <p><a class="btn btn-default" href="#" role="button">Dessert Recipes &raquo;</a></p>
         </div>
       </div>
-    </div>
+
+      <footer>
+        <p><a href="#">Contact Info</a></p>
+      </footer>
+    </div> <!-- /container -->
 
   </body>
 </html>
