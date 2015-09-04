@@ -17,17 +17,28 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from . import views
-from family_recipes_app.views import RecipesListView, RecipeDetail
+from family_recipes_app.views import RecipesListView, RecipeDetail, BreakfastRecipesListView, LunchRecipesListView, DinnerRecipesListView, DessertRecipesListView
 
 
 urlpatterns = [
     # ex: /
     url(r'^$', views.index, name='index'),
-    # ex: /about
+    # ex: /about/
     url(r'^about/$', views.about, name='about'),
-    # example: /list
+    # example: /recipes/
     url(r'^recipes/$', RecipesListView.as_view(), name='recipes_list'),
-    # example: /03
+    # example: /recipes/03/
     url(r'^recipes/(?P<pk>[0-9]+)/$', RecipeDetail.as_view(), name='recipe_detail'),
+    # example: /recipes/breakfast/
+    url(r'^recipes/breakfast/$', BreakfastRecipesListView.as_view(), name='breakfast_recipes_list'),
+    # example: /recipes/dinner/
+    url(r'^recipes/lunch/$', LunchRecipesListView.as_view(), name='lunch_recipes_list'),
+    # example: /recipes/dinner/
+    url(r'^recipes/dinner/$', DinnerRecipesListView.as_view(), name='dinner_recipes_list'),
+    # example: /recipes/dessert/
+    url(r'^recipes/dessert/$', DessertRecipesListView.as_view(), name='dessert_recipes_list'),
+    # example: /recipes/whats_for_dinner/
+    url(r'^recipes/whats_for_dinner/$', views.whats_for_dinner, name='whats_for_dinner'),
+    # example: /admin/
     url(r'^admin/', include(admin.site.urls)),
 ]

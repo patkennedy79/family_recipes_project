@@ -1,0 +1,66 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#">    <!-- NEED TO ADD A FAVICON!!! -->
+
+    <title>Kennedy Family Recipes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'family_recipes_app/css/bootstrap.min.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'family_recipes_app/css/main.css' %}">
+  </head>
+
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#recipe_navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Kennedy Family Recipes</a>
+            </div>
+            <div class="collapse navbar-collapse" id="recipe_navbar">
+              <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="">About</a></li>
+                <li><a href="/recipes">List of Recipes</a></li>
+                <li><a href="#">What's for Dinner?</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Dinner Recommendation:</h1>
+      <h2>Name: {{ dinner_recommendation.name }}</h2>
+      <h2>Description: {{ dinner_recommendation.description }}</h2>
+      <h2>Rating: {{ dinner_recommendation.rating }}</h2>
+      <h2>Type: {{ dinner_recommendation.get_recipe_type_display }}</h2>
+    </div> <!-- /container -->
+
+    <div class="container">
+      <footer>
+        <p><a href="#">Contact Info</a></p>
+      </footer>
+    </div> <!-- /container -->
+
+  </body>
+</html>

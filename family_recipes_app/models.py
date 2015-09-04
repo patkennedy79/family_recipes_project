@@ -20,3 +20,6 @@ class Recipe(models.Model):
     description = models.TextField()
     rating = models. PositiveIntegerField(default=1)
     recipe_type = models.CharField(max_length=2, choices=RECIPE_TYPE_CHOICES, default=DINNER)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
