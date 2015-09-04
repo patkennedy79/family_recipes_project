@@ -49,11 +49,15 @@
     </div>
 
     <div class="container">
-      <h1>Dinner Recommendation:</h1>
-      <h2>Name: {{ dinner_recommendation.name }}</h2>
-      <h2>Description: {{ dinner_recommendation.description }}</h2>
-      <h2>Rating: {{ dinner_recommendation.rating }}</h2>
-      <h2>Type: {{ dinner_recommendation.get_recipe_type_display }}</h2>
+      {% if dinner_recommendation %}
+        <h1>Dinner Recommendation:</h1>
+        <h2>Name: {{ dinner_recommendation.name }}</h2>
+        <h2>Description: {{ dinner_recommendation.description }}</h2>
+        <h2>Rating: {{ dinner_recommendation.rating }}</h2>
+        <h2>Type: {{ dinner_recommendation.get_recipe_type_display }}</h2>
+      {% else %}
+        <p>No recipes are available for the dinner recommendation.</p>
+      {% endif %}
     </div> <!-- /container -->
 
     <div class="container">

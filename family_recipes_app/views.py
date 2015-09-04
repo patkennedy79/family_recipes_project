@@ -18,19 +18,21 @@ def about(request):
     return HttpResponse(template.render())
 
 def whats_for_dinner(request):
-    dinner_recipes = Recipe.objects.filter(recipe_type=Recipe.DINNER)
-    recipe_index = int((random() * 1000) % dinner_recipes.count()) + 1
-    dinner_recommendation = Recipe.objects.get(id=recipe_index)
+    dinner_recommendation_found = False
+    all_recipes = Recipe.objects.all()
 
-#    template = loader.get_template('family_recipes_app/whats_for_dinner.html')
+    if all_recipes.count() > 0:
+        while not dinner_recommendation_found:
+            proposed_index = int((random() * 1000) % all_recipes.count()) + 1
+            proposed_recipe = Recipe.objects.get(id=proposed_index)
+
+            if proposed_recipe.recipe_type == Recipe.DINNER:
+                dinner_recommendation_found = True
+
+        dinner_recommendation = proposed_recipe
+
     context = {'dinner_recommendation': dinner_recommendation}
     return render(request, 'family_recipes_app/whats_for_dinner.html', context)
-#    return HttpResponse(template.render(context))
-
-#    def get_queryset(self):
-#        dinner_recipes = Recipe.objects.filter(recipe_type=Recipe.DINNER)
-#        recipe_index = int((random() * 1000) % dinner_recipes.count()) + 1
-#        return Recipe.objects.get(id=recipe_index)
 
 class RecipesListView(generic.ListView):
     template_name = 'family_recipes_app/recipes_list.html'
