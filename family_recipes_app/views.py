@@ -10,7 +10,9 @@ def index(request):
     return HttpResponse(template.render())
 
 def about(request):
-    return HttpResponse("This is the ABOUT page for the Kennedy Family Recipe site.")
+#    return HttpResponse("This is the ABOUT page for the Kennedy Family Recipe site.")
+    template = loader.get_template('family_recipes_app/about.html')
+    return HttpResponse(template.render())
 
 class RecipesListView(generic.ListView):
     template_name = 'family_recipes_app/recipes_list.html'
@@ -18,3 +20,7 @@ class RecipesListView(generic.ListView):
 
     def get_queryset(self):
         return Recipe.objects.order_by('-name')
+
+class RecipeDetail(generic.DetailView):
+    model = Recipe
+    template_name = 'family_recipes_app/recipe_detail.html'

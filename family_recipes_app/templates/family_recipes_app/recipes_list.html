@@ -1,7 +1,7 @@
 {% if recipes_list %}
     <ul>
     {% for recipe_item in recipes_list %}
-        <li><a href="#">{{ recipe_item.name }}</a></li>
+        <li><a href="/recipes/{{ recipe_item.id }}/">{{ recipe_item.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

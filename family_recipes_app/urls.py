@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from . import views
-from family_recipes_app.views import RecipesListView
+from family_recipes_app.views import RecipesListView, RecipeDetail
 
 
 urlpatterns = [
@@ -26,6 +26,8 @@ urlpatterns = [
     # ex: /about
     url(r'^about/$', views.about, name='about'),
     # example: /list
-    url(r'^list/$', RecipesListView.as_view(), name='recipes_list'),
+    url(r'^recipes/$', RecipesListView.as_view(), name='recipes_list'),
+    # example: /03
+    url(r'^recipes/(?P<pk>[0-9]+)/$', RecipeDetail.as_view(), name='recipe_detail'),
     url(r'^admin/', include(admin.site.urls)),
 ]
