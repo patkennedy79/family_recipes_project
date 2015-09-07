@@ -56,8 +56,8 @@
       <img class="img-responsive" img src="{{ recipe.image.url }}" class="img-rounded" alt="Cinque Terre" height=420px width=420px>
       <p>Rating: {{ recipe.rating }}</p>
       <p>Type: {{ recipe.get_recipe_type_display }}</p>
-      <p>Ingredients: {{ recipe.ingredients }}</p>
-      <p>Steps: {{ recipe.recipe_steps }}</p>
+      <p>Ingredients: {{ recipe.ingredients|linebreaks }}</p>
+      <p>Steps: {{ recipe.recipe_steps|linebreaks }}</p>
     </div> <!-- /container -->
 
     <div class="container">
