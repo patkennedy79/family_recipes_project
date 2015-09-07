@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -109,3 +110,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Define MEDIA_ROOT as the full path to a directory where you’d like Django to store uploaded files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/family_recipes_app')
+
+# Define MEDIA_URL as the base public URL of that directory
+MEDIA_URL = '/media/'

@@ -49,10 +49,15 @@
     </div>
 
     <div class="container">
-      <h1>{{ recipe.name }}</h1>
-      <h2>Description: {{ recipe.description }}</h2>
-      <h2>Rating: {{ recipe.rating }}</h2>
-      <h2>Type: {{ recipe.get_recipe_type_display }}</h2>
+      <h3>{{ recipe.name }}</h3>
+      <p>Description: {{ recipe.description }}</p>
+      <p>Image name: {{ recipe.image }}</p>
+      <p>Image URL: {{ recipe.image.url }}</p>
+      <img class="img-responsive" img src="{{ recipe.image.url }}" class="img-rounded" alt="Cinque Terre" height=420px width=420px>
+      <p>Rating: {{ recipe.rating }}</p>
+      <p>Type: {{ recipe.get_recipe_type_display }}</p>
+      <p>Ingredients: {{ recipe.ingredients }}</p>
+      <p>Steps: {{ recipe.recipe_steps }}</p>
     </div> <!-- /container -->
 
     <div class="container">
