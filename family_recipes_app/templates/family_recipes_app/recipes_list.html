@@ -50,11 +50,11 @@
 
     <div class="container">
       {% if recipes_list %}
-        <ul>
-        {% for recipe_item in recipes_list %}
-          <li><a href="/recipes/{{ recipe_item.id }}/">{{ recipe_item.name }}</a></li>
-        {% endfor %}
-        </ul>
+        <div class="list-group">
+          {% for recipe_item in recipes_list %}
+            <a href="/recipes/{{ recipe_item.id }}/" class="list-group-item">{{ recipe_item.name }}</a>
+          {% endfor %}
+        </div>
       {% else %}
         <p>No recipes are available.</p>
       {% endif %}
