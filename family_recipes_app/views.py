@@ -20,8 +20,9 @@ def about(request):
 def whats_for_dinner(request):
     dinner_recommendation_found = False
     all_recipes = Recipe.objects.all()
+    dinner_recipes = Recipe.objects.filter(recipe_type=Recipe.DINNER)
 
-    if all_recipes.count() > 0:
+    if dinner_recipes.count() > 0:
         while not dinner_recommendation_found:
             proposed_index = int((random() * 1000) % all_recipes.count()) + 1
             proposed_recipe = Recipe.objects.get(id=proposed_index)
