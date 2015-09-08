@@ -45,29 +45,29 @@ class RecipesListView(generic.ListView):
         return Recipe.objects.order_by('-name')
 
 class BreakfastRecipesListView(generic.ListView):
-    template_name = 'family_recipes_app/recipe_type_list.html'
-    context_object_name = 'recipe_type_list'
+    template_name = 'family_recipes_app/recipes_list.html'
+    context_object_name = 'recipes_list'
 
     def get_queryset(self):
         return Recipe.objects.filter(recipe_type=Recipe.BREAKFAST)
 
 class LunchRecipesListView(generic.ListView):
-    template_name = 'family_recipes_app/recipe_type_list.html'
-    context_object_name = 'recipe_type_list'
+    template_name = 'family_recipes_app/recipes_list.html'
+    context_object_name = 'recipes_list'
 
     def get_queryset(self):
         return Recipe.objects.filter(recipe_type=Recipe.LUNCH)
 
 class DinnerRecipesListView(generic.ListView):
-    template_name = 'family_recipes_app/recipe_type_list.html'
-    context_object_name = 'recipe_type_list'
+    template_name = 'family_recipes_app/recipes_list.html'
+    context_object_name = 'recipes_list'
 
     def get_queryset(self):
         return Recipe.objects.filter(recipe_type=Recipe.DINNER)
 
 class DessertRecipesListView(generic.ListView):
-    template_name = 'family_recipes_app/recipe_type_list.html'
-    context_object_name = 'recipe_type_list'
+    template_name = 'family_recipes_app/recipes_list.html'
+    context_object_name = 'recipes_list'
 
     def get_queryset(self):
         return Recipe.objects.filter(recipe_type=Recipe.DESSERT)
