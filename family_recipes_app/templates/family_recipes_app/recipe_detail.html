@@ -50,14 +50,36 @@
 
     <div class="container">
       <h3>{{ recipe.name }}</h3>
-      <p>Description: {{ recipe.description }}</p>
-      <p>Image name: {{ recipe.image }}</p>
-      <p>Image URL: {{ recipe.image.url }}</p>
-      <img class="img-responsive" img src="{{ recipe.image.url }}" class="img-rounded" alt="Cinque Terre" height=420px width=420px>
-      <p>Rating: {{ recipe.rating }}</p>
-      <p>Type: {{ recipe.get_recipe_type_display }}</p>
-      <p>Ingredients: {{ recipe.ingredients|linebreaks }}</p>
-      <p>Steps: {{ recipe.recipe_steps|linebreaks }}</p>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">Description</div>
+            <div class="panel-body">{{ recipe.description }}</div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">Rating</div>
+            <div class="panel-body">{{ recipe.rating }}</div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">Meal Type</div>
+            <div class="panel-body">{{ recipe.get_recipe_type_display }}</div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <img class="img-responsive" img src="{{ recipe.image.url }}" class="img-rounded" alt={{ recipe.name }} height=420px width=420px>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Ingredients</div>
+        <div class="panel-body">{{ recipe.ingredients|linebreaks }}</div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Recipe Steps</div>
+        <div class="panel-body">{{ recipe.recipe_steps|linebreaks }}</div>
+      </div>
     </div> <!-- /container -->
 
     <div class="container">
