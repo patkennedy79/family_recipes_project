@@ -3,11 +3,42 @@
 {% block content %}
     <div class="container">
       {% if dinner_recommendation %}
-        <h1>Dinner Recommendation:</h1>
-        <h2>Name: {{ dinner_recommendation.name }}</h2>
-        <h2>Description: {{ dinner_recommendation.description }}</h2>
-        <h2>Rating: {{ dinner_recommendation.rating }}</h2>
-        <h2>Type: {{ dinner_recommendation.get_recipe_type_display }}</h2>
+        {% if dinner_recommendation.name == "TAKEOUT" %}
+          <h2>Dinner Recommendation:</h1>
+          <h3>Get takeout from your favorite restaurant!!!</h2>
+        {% else %}
+            <h2>Dinner Recommendation:</h1>
+            <h3>{{ dinner_recommendation.name }}</h3>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Description</div>
+                  <div class="panel-body">{{ dinner_recommendation.description }}</div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">Rating</div>
+                  <div class="panel-body">{{ dinner_recommendation.rating }}</div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">Meal Type</div>
+                  <div class="panel-body">{{ dinner_recommendation.get_recipe_type_display }}</div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <img class="img-responsive" img src="{{ dinner_recommendation.image.url }}" class="img-rounded" alt={{ dinner_recommendation.name }} height=420px width=420px>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">Ingredients</div>
+              <div class="panel-body">{{ dinner_recommendation.ingredients|linebreaks }}</div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">Recipe Steps</div>
+              <div class="panel-body">{{ dinner_recommendation.recipe_steps|linebreaks }}</div>
+            </div>
+        {% endif %}
       {% else %}
         <p>No recipes are available for the dinner recommendation.</p>
       {% endif %}

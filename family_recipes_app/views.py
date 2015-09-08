@@ -13,7 +13,6 @@ def index(request):
     return HttpResponse(template.render())
 
 def about(request):
-#    return HttpResponse("This is the ABOUT page for the Kennedy Family Recipe site.")
     template = loader.get_template('family_recipes_app/about.html')
     return HttpResponse(template.render())
 
@@ -26,6 +25,9 @@ def whats_for_dinner(request):
         while not dinner_recommendation_found:
             proposed_index = int((random() * 1000) % all_recipes.count()) + 1
             proposed_recipe = Recipe.objects.get(id=proposed_index)
+
+            if proposed_index % 10 == 0:
+                proposed_recipe.name = "TAKEOUT"
 
             if proposed_recipe.recipe_type == Recipe.DINNER:
                 dinner_recommendation_found = True
